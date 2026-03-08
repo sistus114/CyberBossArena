@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Boss Arena</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "gameEngine": "./js/engine.js",
+            "player": "./js/player.js",
+            "bosses": "./js/bosses.js",
+            "projectiles": "./js/projectiles.js",
+            "levels": "./js/levels.js",
+            "ui": "./js/ui.js",
+            "audio": "./js/audio.js",
+            "transitions": "./js/transitions.js"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="game-container">
+        <div id="y8-splash">
+            <img src="images/y8_logo.png" alt="Y8 Games">
+            <p>Powered by Y8</p>
+        </div>
+        <div id="loading-screen">
+            <div class="loading-content">
+                <h2>Loading Game...</h2>
+
+                <div id="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <div id="progress-text">0%</div>
+            </div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-overlay">
+            <div id="health-container">
+                <div id="health-bar"></div>
+                <span id="health-text">Health: 100</span>
+            </div>
+            <div id="boss-health-container">
+                <div id="boss-health-bar"></div>
+                <span id="boss-name">No Boss</span>
+            </div>
+            <div id="arrow-count">Arrows: 20</div>
+        </div>
+        
+        <div id="start-screen">
+            <h1>Cyber Boss Arena</h1>
+            <div class="menu-buttons">
+                <button id="start-button">Start Game</button>
+                <button id="how-to-play-button">How To Play</button>
+                <button id="settings-button">Settings</button>
+            </div>
+            <div class="version">v1.1</div>
+
+                <!-- Y8 Logo -->
+            <a href="https://www.y8.com" target="_blank" id="y8-logo">
+                <img src="images/y8_logo.png" id="y8-logo" alt="Play on Y8">
+            </a>
+        </div>
+        
+        <div id="how-to-play-screen" class="menu-screen">
+            <h2>How To Play</h2>
+            <div class="scrollable-content">
+                <div class="instruction-box">
+                    <h3>Movement</h3>
+                    <p>WASD or Arrow Keys to move your character</p>
+                </div>
+                <div class="instruction-box">
+                    <h3>Combat</h3>
+                    <p>Left click to shoot arrows at the cursor position</p>
+                    <p>Arrow keys also shoot in that direction</p>
+                    <p>When out of arrows, you'll automatically reload (takes 2 seconds)</p>
+                </div>
+                <div class="instruction-box">
+                    <h3>Bosses</h3>
+                    <p>Defeat all four bosses to win!</p>
+                    <ul>
+                        <li>Goblin Chief - Quick and throws knives</li>
+                        <li>Undead Lord - Slow but toxic</li>
+                        <li>Feathered Fiend - Fast and jumps high</li>
+                        <li>Skeleton King - Ghostly with clones and tornadoes</li>
+                    </ul>
+                </div>
+            </div>
+            <button id="back-from-how-to-play" class="back-button">Back</button>
+        </div>
+        
+        <div id="settings-screen" class="menu-screen">
+            <h2>Settings</h2>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <span>Sound Effects</span>
+                    <label class="toggle">
+                        <input type="checkbox" id="sound-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span>Sound Volume</span>
+                    <input type="range" id="volume-slider" min="0" max="100" value="70">
+                    <span id="volume-value">70%</span>
+                </div>
+                <div class="setting-item">
+                    <span>Bloom Effect</span>
+                    <label class="toggle">
+                        <input type="checkbox" id="bloom-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <button id="back-from-settings" class="back-button">Back</button>
+        </div>
+        
+        <div id="game-over-screen">
+            <h1 id="game-over-text">Game Over</h1>
+            <p id="game-over-message"></p>
+            <button id="restart-button">Play Again</button>
+            <button id="menu-button">Main Menu</button>
+        </div>
+        <div id="mobile-controls">
+            <div class="joystick-area">
+                <div id="joystick-base">
+                    <div id="joystick-thumb"></div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="mobile-shoot"></button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
